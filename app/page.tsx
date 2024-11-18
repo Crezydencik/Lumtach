@@ -13,7 +13,7 @@ export default function Home() {
     <div className="bg-black text-white">
       <Hero />
       <AboutCompany />
-      <Stats />
+      {/* <Stats /> */}
       <ProductStages />
       <MobileApp />
       <Features />
