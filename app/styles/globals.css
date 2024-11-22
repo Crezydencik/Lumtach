@@ -90,5 +90,14 @@
 }
 
 .bg-gradient-radial {
-  background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    var(--tw-gradient-from) 0%,
+    transparent 70%
+  );
+}
+img,
+video {
+  max-width: none;
+  height: auto; /* Оставляем, чтобы сохранялись пропорции */
 }

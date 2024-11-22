@@ -18,8 +18,8 @@ export default function Home() {
       <MobileApp />
       <Features />
       <Reasons />
-      <FAQ />
       <CTA />
+      <FAQ />
     </div>
   );
 }

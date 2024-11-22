@@ -30,7 +30,7 @@ export default function Reasons() {
   return (
     <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-lime-400 mb-4 font-mono">ADVANTAGES</div>
+        <div className="text-lime-400 mb-4 font-mono text-center">ADVANTAGES</div>
         <h2 className="text-6xl font-bold mb-4 text-center">
           REASONS TO <span className="text-gray-500">WORK</span><br />
           WITH <span className="text-gray-500">LUMTACH</span>

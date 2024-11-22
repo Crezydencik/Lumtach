@@ -36,7 +36,7 @@ export default function Features() {
     <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-lime-400 mb-4 font-mono">OUR SERVICES</div>
-        <div className="flex flex-col md:flex-row gap-12 items-start">
+        <div className="flex flex-col md:flex-row gap-20 items-start">
           <div className="md:w-1/3">
             <h2 className="text-6xl font-extrabold mb-8 leading-tight">
               TAILORED TO<br />
@@ -45,35 +45,43 @@ export default function Features() {
             <p className="text-gray-400 mb-8">
               We diligently strive to ensure that our solutions not only perform their functions but also inspire, support, and yield tangible results. Our approach is rooted in innovation, specialized software solutions, and a personalized touch tailored to each client.
             </p>
-            <Button className="custom-button bg-lime-400 text-black hover:bg-lime-500 text-lg px-8 py-4">
+            <Button className="button button--primary ">
               Learn more
             </Button>
           </div>
-
-          <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 ">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-        
-                className="bg-gray-900 p-6 rounded-lg relative overflow-hidden group shadow-xl flex flex-col justify-between"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gray-900 p-6 rounded-3xl relative overflow-hidden shadow-xl flex flex-col justify-between "
               >
-                {/* Круговое свечение с использованием box-shadow */}
+                {/* Мягкое свечение в правом верхнем углу */}
                 <div
-                  className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                  className="absolute w-[200px] h-[200px] rounded-full pointer-events-none"
                   style={{
-                    boxShadow: `0 0 60px 20px ${feature.glowColor}`,
-                    zIndex: -1,
+                    boxShadow: `0 0 11px 14px ${feature.glowColor}`,
+                    opacity: 0.5,
+                    top: '-100px',
+                    right: '-106px',
+                    zIndex: 0,
+                    filter: 'blur(2px)',
                   }}
                 ></div>
 
-                <feature.icon className="w-12 h-12 mb-4 text-white group-hover:scale-110 transition-transform" />
+                {/* Иконка, заголовок и описание */}
+                <Icon className="w-12 h-12 mb-4 text-white group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold mb-4 text-white">{feature.title}</h3>
                 <p className="text-gray-400 text-sm">{feature.description}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
         </div>
       </div>
     </section>
