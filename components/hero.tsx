@@ -9,11 +9,23 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col lg:flex-row items-center justify-between pt-10 px-6 lg:px-16 bg-black text-white">
       {/* Текстовая часть */}
       <div className="max-w-lg lg:max-w-2xl">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          EMPOWERING<br />
-          BUSINESS THROUGH<br />
-          TECHNOLOGY
-        </h1>
+      <h1
+            className="text-4xl font-bold mb-5"
+            style={{
+              fontSize: "78px",
+              fontStyle: "normal",
+              fontWeight: 600,
+              lineHeight: "80px",
+              textTransform: "uppercase",
+              background:
+                "var(--Linear, linear-gradient(115deg, #FFF 19.49%, rgba(255, 255, 255, 0.00) 98.47%))",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            EMPOWERING BUSINESS THROUGH TECHNOLOGY
+          </h1>
         <p className="text-gray-400 text-xl mb-8">
           We aim to simplify and strengthen your business through advanced technological solutions.
         </p>
