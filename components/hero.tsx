@@ -37,7 +37,6 @@ export default function Hero() {
       {/* Визуальная часть */}
       <div className="relative w-full lg:w-1/2 mt-10 lg:mt-0 -ml-26">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="relative w-full h-full flex justify-center items-center"
