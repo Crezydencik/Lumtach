@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col lg:flex-row items-center justify-between pt-10 px-6 lg:px-16 bg-black text-white">
       {/* Текстовая часть */}
       <div className="max-w-lg lg:max-w-2xl">
-      <h1
+         <h1
             className="text-4xl font-bold mb-5"
             style={{
               fontSize: "78px",
