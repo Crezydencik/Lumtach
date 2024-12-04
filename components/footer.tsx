@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <footer className="bg-black text-white p-12">
+      <div className="md:flex ">
         {/* Contact Form */}
-        <div className="bg-gray-900 p-6 rounded-lg">
+        <div className="p-6 rounded-lg md:w-[33%]">
           <h3 className="text-lime-400 text-sm font-mono mb-4">CONTACT US</h3>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             WANT TO <span className="text-lime-400">CONTACT US?</span>
@@ -36,9 +37,10 @@ export default function Footer() {
             </button>
           </form>
         </div>
+    <div className="md:flex justify-between md:w-[67%]">
 
         {/* Navigation and Contact Details */}
-        <div className="flex flex-col space-y-8">
+        <div className="">
           <div>
             <h3 className="text-lime-400 text-sm font-mono mb-4">ABOUT</h3>
             <ul className="space-y-2">
@@ -79,6 +81,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          </div>
+        <div className="">
           <div>
             <h3 className="text-lime-400 text-sm font-mono mb-4">CONTACT US</h3>
             <ul className="space-y-2">
@@ -88,16 +92,24 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
         {/* Logo and Social Links */}
-        <div className="flex flex-col justify-between">
+        <div className="">
           <div className="flex justify-center lg:justify-end">
             <Link href="/" className="flex items-center mb-4">
-              <span className="text-lime-400 text-2xl font-bold">Lum</span>
-              <span className="text-white text-2xl font-bold">tech</span>
+            <Image
+              src="/lumtech-logo.svg"
+              alt="Lumtech"
+              width={140}
+              height={32}
+              className="h-8 w-auto"
+            />
             </Link>
           </div>
-          <div className="flex space-x-4 justify-center lg:justify-end mb-8">
+          </div>
+      </div>
+    </div>
+        <div className="center">
+          <div className="flex space-x-4 justify-center mb-4">
             <Link href="#" className="text-gray-400 hover:text-white">
               <Facebook className="w-6 h-6" />
             </Link>
@@ -115,7 +127,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Lumtech. All rights reserved.
           </div>
         </div>
-      </div>
     </footer>
   );
 }

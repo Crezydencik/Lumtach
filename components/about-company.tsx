@@ -32,7 +32,7 @@ export default function AboutCompany() {
               (item, index) => (
                 <div
                   key={index}
-                  className="bg-[#111111] p-8 flex flex-col items-center justify-center text-center h-[150px] w-full border border-black"
+                  className="bg-gray-900  p-8 flex flex-col items-center justify-center text-center h-[150px] w-full border border-black tekstdecor"
                 >
                   <div className="text-6xl font-mono font-bold text-white mb-2">{item.number}</div>
                   <div className="text-gray-500 text-sm uppercase">{item.text}</div>
