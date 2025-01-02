@@ -1,10 +1,9 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-
 
 interface FormData {
   name: string;
@@ -12,16 +11,17 @@ interface FormData {
   email: string;
   message: string;
 }
+
 export default function Footer() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
     email: '',
     message: '',
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Partial<FormData>>({});
   const [successMessage, setSuccessMessage] = useState('');
 
   const validateForm = () => {
@@ -30,26 +30,26 @@ export default function Footer() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!formData.name.trim()) {
-      newErrors.name = t('footer.errors.nameRequired');
+      newErrors.name = t('footer.errors.nameRequired') || 'Name is required';
     }
 
     if (!phoneRegex.test(formData.phone)) {
-      newErrors.phone = t('footer.errors.invalidPhone');
+      newErrors.phone = t('footer.errors.invalidPhone') || 'Invalid phone number';
     }
 
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = t('footer.errors.invalidEmail');
+      newErrors.email = t('footer.errors.invalidEmail') || 'Invalid email address';
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t('footer.errors.messageRequired');
+      newErrors.message = t('footer.errors.messageRequired') || 'Message is required';
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       try {
@@ -60,7 +60,7 @@ export default function Footer() {
         });
 
         if (response.ok) {
-          setSuccessMessage(t('footer.successMessage'));
+          setSuccessMessage(t('footer.successMessage') || 'Form submitted successfully!');
           setFormData({ name: '', phone: '', email: '', message: '' });
           setErrors({});
         } else {
@@ -68,17 +68,16 @@ export default function Footer() {
         }
       } catch (error) {
         console.error('Error:', error);
-        setErrors({ server: t('footer.errors.serverError') });
+        setErrors({ server: t('footer.errors.serverError') || 'Failed to send form. Please try again later.' });
       }
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: '' }));
   };
-
   return (
     <footer id='contact' className="bg-black text-white p-12">
       <div className="md:flex ">
