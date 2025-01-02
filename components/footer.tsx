@@ -1,162 +1,164 @@
 'use client';
+
 import Link from 'next/link';
-import { useState } from 'react';
 import { Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
-
-interface FormData {
-  name: string;
-  phone: string;
-  email: string;
-  message: string;
-}
 
 export default function Footer() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t('footer.errors.nameRequired')),
+    phone: Yup.string()
+      .matches(
+        /^(\+?[0-9]{1,4})?[0-9]{8,15}$/,
+        t('footer.errors.invalidPhone')
+      )
+      .required(t('footer.errors.nameRequired')),
+    email: Yup.string()
+      .email(t('footer.errors.invalidEmail'))
+      .required(t('footer.errors.nameRequired')),
+    message: Yup.string().required(t('footer.errors.messageRequired')),
   });
 
-  const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [successMessage, setSuccessMessage] = useState('');
-
-  const validateForm = () => {
-    const newErrors: Partial<FormData> = {};
-    const phoneRegex = /^(\+?[0-9]{1,4})?[0-9]{8,15}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!formData.name.trim()) {
-      newErrors.name = t('footer.errors.nameRequired') || 'Name is required';
-    }
-
-    if (!phoneRegex.test(formData.phone)) {
-      newErrors.phone = t('footer.errors.invalidPhone') || 'Invalid phone number';
-    }
-
-    if (!emailRegex.test(formData.email)) {
-      newErrors.email = t('footer.errors.invalidEmail') || 'Invalid email address';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = t('footer.errors.messageRequired') || 'Message is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      phone: '',
+      email: '',
+      message: '',
+    },
+    validationSchema,
+    onSubmit: async (values, { resetForm }) => {
       try {
         const response = await fetch('/api/sendmail', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(values),
         });
 
         if (response.ok) {
-          setSuccessMessage(t('footer.successMessage') || 'Form submitted successfully!');
-          setFormData({ name: '', phone: '', email: '', message: '' });
-          setErrors({});
+          resetForm();
+          alert(t('footer.successMessage'));
         } else {
-          throw new Error('Failed to send email');
+          alert(t('footer.errors.serverError'));
         }
       } catch (error) {
-        console.error('Error:', error);
-        setErrors({ server: t('footer.errors.serverError') || 'Failed to send form. Please try again later.' });
+        console.error(error);
+        alert(t('footer.errors.serverError'));
       }
-    }
-  };
+    },
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: '' }));
-  };
   return (
-    <footer id='contact' className="bg-black text-white p-12">
-      <div className="md:flex ">
+    <footer id="contact" className="bg-black text-white p-12">
+      <div className="md:flex">
         {/* Contact Form */}
         <div className="pr-6 rounded-lg md:w-[33%]">
-          <h3 className="text-lime-400 text-sm font-mono mb-4">{t('footer.contactUs')}</h3>
+          <h3 className="text-lime-400 text-sm font-mono mb-4">
+            {t('footer.contactUs')}
+          </h3>
           <h2 className="text-[rgba(255, 255, 255, 40)] md:text-4xl font-bold mb-6">
-            {t('footer.wantTo')} 
+            {t('footer.wantTo')}
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="relative">
-              <label className="formLabel" htmlFor="name">
+          <form onSubmit={formik.handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="formLabel">
                 {t('footer.form.name')}
-                {errors.name && <span className="text-red-500 text-sm ml-2">{errors.name}</span>}
               </label>
               <input
-                type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`form-style ${errors.name ? 'border-red-500' : 'border-gray-700'}`}
+                type="text"
+                className={`form-style ${
+                  formik.touched.name && formik.errors.name
+                    ? 'border-red-500'
+                    : 'border-gray-700'
+                }`}
                 placeholder={t('footer.placeholders.name')}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
               />
+              {formik.touched.name && formik.errors.name && (
+                <p className="text-red-500 text-sm">{formik.errors.name}</p>
+              )}
             </div>
 
-            <div className="relative">
-              <label className="formLabel" htmlFor="phone">
+            <div>
+              <label htmlFor="phone" className="formLabel">
                 {t('footer.form.phone')}
-                {errors.phone && <span className="text-red-500 text-sm ml-2">{errors.phone}</span>}
               </label>
               <input
-                type="text"
                 id="phone"
                 name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`form-style ${errors.phone ? 'border-red-500' : 'border-gray-700'}`}
+                type="text"
+                className={`form-style ${
+                  formik.touched.phone && formik.errors.phone
+                    ? 'border-red-500'
+                    : 'border-gray-700'
+                }`}
                 placeholder={t('footer.placeholders.phone')}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.phone}
               />
+              {formik.touched.phone && formik.errors.phone && (
+                <p className="text-red-500 text-sm">{formik.errors.phone}</p>
+              )}
             </div>
 
-            <div className="relative">
-              <label className="formLabel" htmlFor="email">
+            <div>
+              <label htmlFor="email" className="formLabel">
                 {t('footer.form.email')}
-                {errors.email && <span className="text-red-500 text-sm ml-2">{errors.email}</span>}
               </label>
               <input
-                type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`form-style ${errors.email ? 'border-red-500' : 'border-gray-700'}`}
+                type="email"
+                className={`form-style ${
+                  formik.touched.email && formik.errors.email
+                    ? 'border-red-500'
+                    : 'border-gray-700'
+                }`}
                 placeholder={t('footer.placeholders.email')}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
               />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-red-500 text-sm">{formik.errors.email}</p>
+              )}
             </div>
 
-            <div className="relative">
-              <label className="formLabel" htmlFor="message">
+            <div>
+              <label htmlFor="message" className="formLabel">
                 {t('footer.form.message')}
-                {errors.message && <span className="text-red-500 text-sm ml-2">{errors.message}</span>}
               </label>
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className={`form-style ${errors.message ? 'border-red-500' : 'border-gray-700'}`}
+                className={`form-style ${
+                  formik.touched.message && formik.errors.message
+                    ? 'border-red-500'
+                    : 'border-gray-700'
+                }`}
                 placeholder={t('footer.placeholders.message')}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.message}
               ></textarea>
+              {formik.touched.message && formik.errors.message && (
+                <p className="text-red-500 text-sm">{formik.errors.message}</p>
+              )}
             </div>
 
             <button type="submit" className="button button--primary">
               {t('footer.submit')}
             </button>
-
-            {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
-            {errors.server && <p className="text-red-500 mt-4">{errors.server}</p>}
           </form>
         </div>
     <div className="md:flex justify-between md:w-[67%]">
