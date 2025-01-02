@@ -5,6 +5,13 @@ import { Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
+
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}
 export default function Footer() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
@@ -18,7 +25,7 @@ export default function Footer() {
   const [successMessage, setSuccessMessage] = useState('');
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Partial<FormData> = {};
     const phoneRegex = /^(\+?[0-9]{1,4})?[0-9]{8,15}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
