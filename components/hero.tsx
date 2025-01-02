@@ -3,35 +3,25 @@
 import '../app/styles/button.scss';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row items-center justify-between pt-10 px-6 lg:px-16 bg-black text-white">
+    <section id='home' className="min-h-screen flex flex-col lg:flex-row items-center justify-between pt-20 px-6 lg:px-16 text-white">
       {/* Текстовая часть */}
-      <div className="max-w-lg lg:max-w-2xl">
-         <h1
-            className="text-4xl font-bold mb-5"
-            style={{
-              fontSize: "78px",
-              fontStyle: "normal",
-              fontWeight: 600,
-              lineHeight: "80px",
-              textTransform: "uppercase",
-              background:
-                "var(--Linear, linear-gradient(115deg, #FFF 19.49%, rgba(255, 255, 255, 0.00) 98.47%))",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            EMPOWERING BUSINESS THROUGH TECHNOLOGY
-          </h1>
+      <div className="max-w-2lg lg:max-w-3xl">
+        <h1 className="text-6xl font-bold mb-5 mt-16 tekstdecor">
+          {t('hero.title')}
+        </h1>
         <p className="text-gray-400 text-xl mb-8">
-          We aim to simplify and strengthen your business through advanced technological solutions.
+          {t('hero.description')}
         </p>
-        <Button className="bg-lime-400 text-black hover:bg-lime-500 px-8 py-4 rounded-md">
-          Discuss the project
-        </Button>
+        <a href="#contact" className="bg-lime-400 text-black hover:bg-lime-500 px-8 py-4 rounded-md">
+          {t('hero.button')}
+        </a>
       </div>
 
       {/* Визуальная часть */}

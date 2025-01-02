@@ -1,26 +1,28 @@
+'use client';
+
 import './styles/globals.css';
 import './styles/basic.scss';
-import type { Metadata } from 'next';
+
+import '../i18n'; // Подключение локализации
 import { Inter, Oxanium } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
+import { useTranslation } from 'react-i18next';
 
 const inter = Inter({ subsets: ['latin'] });
 const oxanium = Oxanium({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Lumtech - Empowering Business Through Technology',
-  description: 'Transform your business with cutting-edge technology solutions',
-};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { i18n } = useTranslation();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={i18n.language} suppressHydrationWarning>
       <body className={`${inter.className} bg-black`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar />

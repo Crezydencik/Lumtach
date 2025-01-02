@@ -1,40 +1,42 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function CTA() {
+  const { t } = useTranslation();
+
   return (
     <section
-      className="py-20 relative overflow-hidden rounded-lg w-[90%] "
+      className="py-20 relative overflow-hidden rounded-lg w-[90%]"
       style={{
-        background: 'linear-gradient(90deg, #A6EB53 0%, #7561FF 100%)', margin: '0 auto', 
+        background: 'linear-gradient(90deg, #A6EB53 0%, #7561FF 100%)',
+        margin: '0 auto',
       }}
     >
-      <div className="relative z-10  mx-auto px-6 flex items-center justify-between h-24" >
+      <div className="relative z-10 mx-auto px-6 flex flex-col lg:flex-row items-center justify-between h-auto lg:h-24">
         {/* Текстовый блок */}
-        <div>
+        <div className="text-center lg:text-left">
           <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
-            DO YOU WANT TO KNOW ABOUT THE COST?
+            {t('cta.heading')}
           </h2>
-          <p className="text-gray-800 mb-6">
-            Establish an account, finalize identity verification, and obtain 100 USDT complimentary.
-          </p>
-          <Button className="button button--tertiary">
-            Contact us
-          </Button>
+          <p className="text-gray-800 mb-6">{t('cta.description')}</p>
+          <a href="#contact" className="button button--tertiary">{t('cta.button')}</a>
         </div>
 
         {/* Изображение или графика */}
-        <div className="relative w-1/2">
+        <div className="relative w-full lg:w-1/2 mt-10 lg:mt-0">
           <img
             src="/images/cta_IMG.png"
-            alt="Illustration"
-            className="absolute right-0  h-auto lg:max-w-[150%] lg:-mt-[17REM] "
+            alt={t('cta.imageAlt')}
+            className="absolute right-0 h-auto lg:max-w-[150%] lg:-mt-[17REM]"
           />
         </div>
       </div>
-      <div className="absolute inset-0 opacity-500">
+      <div className="absolute inset-0 opacity-50">
         <img
           src="/images/background_block.png"
-          alt="Background Pattern"
+          alt={t('cta.backgroundAlt')}
           className="w-full h-full object-cover"
         />
       </div>

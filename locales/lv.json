@@ -1,0 +1,183 @@
+{
+	"navbar": {
+	  "home": "Sākums",
+	  "about": "Par mums",
+	  "services": "Pakalpojumi",
+	  "project": "Projekts",
+	  "advantages": "Priekšrocības",
+	  "contact": "Sazināties ar mums"
+	},
+	"hero": {
+	  "title": "TEHNOLOĢIJAS, KAS VEICINA JŪSU BIZNESU",
+	  "description": "Mūsu mērķis ir vienkāršot un stiprināt jūsu biznesu, izmantojot modernus tehnoloģiskos risinājumus.",
+	  "button": "Apspriest projektu"
+	},
+	"about": {
+	  "sectitle": "PAR KOMPĀNIJU",
+	  "heading": "KUR\nTEHNOLOĢIJAS\nKĻŪST PAR REALITĀTI",
+	  "description": "Lumtech ir mūsdienīga, jauna IT kompānija, kuras misija ir radīt inovatīvus un funkcionālus tehnoloģiskos risinājumus. Mūsu talantīgie izstrādātāji, dizaineri un datu analīzes speciālisti rūpīgi strādā, lai piedāvātu produktus, kas atbilst mūsdienu tirgus prasībām.",
+	  "button": "Apspriest projektu",
+	  "stats": {
+		"projects": "projekti",
+		"clients": "klienti",
+		"awards": "balvas",
+		"employees": "darbinieki"
+	  }
+	},
+	"stages": {
+	  "sectitle": "KĀ TAS STRĀDĀ",
+	  "heading": "PRODUKTU IZSTRĀDES POSMI",
+	  "description": "No izpētes līdz ieviešanai: soļi, kas nosaka projekta panākumus",
+	  "step1": {
+		"title": "Izpēte un dizains",
+		"description": "Šis posms ietver klientu prasību analīzi, tirgus un konkurences vides izpēti, projekta mērķu un uzdevumu noteikšanu. Šeit tiek izstrādāta kopējā produkta koncepcija, tostarp lietotāja interfeiss, vizuālais dizains, lietotnes arhitektūra un funkcionalitātes iespējas."
+	  },
+	  "step2": {
+		"title": "Izstrāde",
+		"description": "Kodēšanas un projekta realizācijas process, balstoties uz iepriekšējos posmos noteikto. Programmēšana, funkciju integrēšana un atsevišķu moduļu testēšana."
+	  },
+	  "step3": {
+		"title": "Testēšana",
+		"description": "Pēc produkta izstrādes speciālisti veic testēšanu, lai noteiktu kļūdas un nepilnības, nodrošinot kvalitātes standartiem atbilstošu produktu."
+	  },
+	  "step4": {
+		"title": "Ieviešana un palaišana",
+		"description": "Posms, kurā gatavais produkts tiek laists klajā un ieviests gala lietotājam."
+	  }
+	},
+	"slider": {
+	  "sectitle": "MŪSU PROJEKTI",
+	  "slide1": {
+		"title": "in Baltic.eu",
+		"description": "Mēs specializējamies pielāgotu programmatūras risinājumu izstrādē uzņēmumu vajadzībām. Mūsu ekspertu komanda izmanto Agile pieeju, lai nodrošinātu ātru un drošu izstrādi, kas sniedz maksimālu vērtību jūsu biznesam.",
+		"feature1": "Tīmekļa izstrāde",
+		"feature2": "UX/UI dizains"
+	  },
+	  "slide2": {
+		"title": "Projekts Alpha",
+		"description": "Nodrošinām inovatīvus risinājumus datu vadītiem uzņēmumiem, koncentrējoties uz efektivitāti un mērogojamību.",
+		"feature1": "Mākoņpakalpojumi",
+		"feature2": "Mākslīgā intelekta integrācija"
+	  },
+	  "button": "Apskatīt projektu"
+	},
+	"features": {
+	  "sectitle": "MŪSU PAKALPOJUMI",
+	  "heading": "RISINĀJUMI, KAS PIELĀGOTI JŪSU VAJADZĪBĀM",
+	  "description": "Mēs rūpīgi strādājam, lai mūsu risinājumi ne tikai izpildītu savas funkcijas, bet arī iedvesmotu, atbalstītu un nodrošinātu reālus rezultātus.",
+	  "button": "Uzzināt vairāk",
+	  "feature1": {
+		"title": "PROGRAMMATŪRAS IZSTRĀDE",
+		"description": "Mēs specializējamies pielāgotas programmatūras izstrādē, kas atbilst uzņēmumu vajadzībām. Mūsu ekspertu komanda izmanto Agile pieeju, lai nodrošinātu ātru un drošu izstrādi, kas sniedz maksimālu vērtību."
+	  },
+	  "feature2": {
+		"title": "TĪMEKĻA UN MOBILO LIETOTŅU IZSTRĀDE",
+		"description": "Mēs specializējamies modernu tīmekļa vietņu un mobilo lietotņu izstrādē, piedāvājot unikālus risinājumus un izcilu lietotāja pieredzi."
+	  },
+	  "feature3": {
+		"title": "UX/UI DIZAINS",
+		"description": "UX/UI dizains ir svarīga daļa pievilcīgu, intuitīvu un lietotājam draudzīgu digitālo saskarnju veidošanā."
+	  },
+	  "feature4": {
+		"title": "DATU ZINĀTNE",
+		"description": "Datu zinātne ir būtiska, lai pieņemtu pamatotus biznesa lēmumus. Mūsu uzņēmums specializējas vērtīgu ieskatu iegūšanā no dažādiem datu avotiem."
+	  }
+	},
+	"reasons": {
+	  "sectitle": "PRIEKŠROCĪBAS",
+	  "heading": "KĀPĒC STRĀDĀT AR LUMTECH",
+	  "subheading": "Mēs lepojamies ar spēju pielāgoties dažādām situācijām un piedāvāt personalizētas stratēģijas katram klientam. Kvalitāte, inovācijas un individuāla pieeja ir mūsu galvenie principi.",
+	  "reason1": {
+		"description": "Inovatīvi risinājumi: Mēs ieviešam modernas tehnoloģijas un metodes, lai radītu risinājumus, kas pārsniedz parasto un nodrošina jūsu konkurētspēju tirgū."
+	  },
+	  "reason2": {
+		"description": "Personalizēta pieeja: Katrs klients ir unikāls. Mūsu komanda veido attiecības, balstoties uz uzmanību jūsu mērķiem un vajadzībām, izstrādājot pielāgotas stratēģijas."
+	  },
+	  "reason3": {
+		"description": "Garantēta kvalitāte: Mūsu galvenais mērķis ir nodrošināt visaugstāko kvalitāti katrā mūsu darba aspektā."
+	  },
+	  "reason4": {
+		"description": "Elastība un pielāgošanās: Esam gatavi ātri reaģēt uz izmaiņām un pielāgot savu pieeju."
+	  },
+	  "extra": {
+		"description": "Ekspertu pieeja: Lumtech komanda sastāv no pieredzējušiem profesionāļiem, kas gatavi risināt vissarežģītākos uzdevumus."
+	  }
+	},
+	"cta": {
+	  "heading": "KĀ TEHNOLOĢIJAS VAR MAINĪT JŪSU BIZNESU?",
+	  "description": "Pastāstiet mums par savu projektu, un mēs piedāvāsim labākos risinājumus tā realizācijai.",
+	  "button": "Sazināties ar mums",
+	  "imageAlt": "Ilustrācija",
+	  "backgroundAlt": "Fona attēls"
+	},
+	"faq": {
+	  "title": "FAQ",
+	  "column1": [
+		{
+		  "question": "Kādus IT risinājumus piedāvā Lumtech?",
+		  "answer": "Lumtech specializējas pielāgotas programmatūras izstrādē, tīmekļa un mobilo lietotņu veidošanā, UX/UI dizainā, datu analīzē un mākoņrisinājumos."
+		},
+		{
+		  "question": "Kā Lumtech integrē risinājumus esošajā infrastruktūrā?",
+		  "answer": "Mūsu komanda nodrošina risinājumu bezšuvju integrāciju esošajā infrastruktūrā, samazinot dīkstāvi un palielinot efektivitāti."
+		},
+		{
+		  "question": "Kādus atbalsta pakalpojumus Lumtech piedāvā pēc projekta pabeigšanas?",
+		  "answer": "Mēs piedāvājam uzturēšanu, atjauninājumus un uzlabojumus, lai nodrošinātu stabilu risinājumu darbību."
+		}
+	  ],
+	  "column2": [
+		{
+		  "question": "Cik droši ir Lumtech izstrādātie risinājumi?",
+		  "answer": "Mēs ieviešam modernus drošības pasākumus, tostarp datu šifrēšanu, regulāru ievainojamību pārbaudi un drošas kodēšanas standartus."
+		},
+		{
+		  "question": "Kā Lumtech nodrošina projektu izpildi laikā?",
+		  "answer": "Mēs izmantojam Agile metodoloģiju, lai efektīvi pārvaldītu termiņus, sniegtu regulārus atskaites punktus un nodrošinātu projektu pabeigšanu noteiktajos termiņos."
+		}
+	  ]
+	},
+	"footer": {
+	  "contactUs": "Sazināties ar mums",
+	  "wantTo": "Vēlaties sazināties ar mums",
+	  "form": {
+		"name": "Jūsu vārds",
+		"phone": "Telefona numurs",
+		"email": "E-pasts",
+		"message": "Ziņa"
+	  },
+	  "placeholders": {
+		"name": "Ievadiet savu vārdu",
+		"phone": "Ievadiet savu telefona numuru",
+		"email": "Ievadiet savu e-pastu",
+		"message": "Ievadiet savu ziņu"
+	  },
+	  "submit": "Nosūtīt",
+	  "successMessage": "Forma veiksmīgi nosūtīta!",
+	  "errors": {
+		"nameRequired": "Vārds ir obligāts",
+		"invalidPhone": "Nederīgs telefona numurs",
+		"invalidEmail": "Nederīgs e-pasta adrese",
+		"messageRequired": "Ziņa ir obligāta",
+		"serverError": "Neizdevās nosūtīt formu. Lūdzu, mēģiniet vēlreiz vēlāk."
+	  },
+	  "about": "Par mums",
+	  "info": "Informācija",
+	  "links": {
+		"company": "Kompānija",
+		"team": "Komanda",
+		"projects": "Projekti",
+		"services": "Pakalpojumi",
+		"advantages": "Priekšrocības",
+		"faq": "FAQ"
+	  },
+	  "contact": {
+		"contacts": "Sazināties ar mums",
+		"phone": "+1 (999) 999-99-99",
+		"email": "hello@company.com",
+		"address": "Rīga, Latvija"
+	  },
+	  "bottomText": "Lumtech. Visas tiesības aizsargātas."
+	}
+  }
+  

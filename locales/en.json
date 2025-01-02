@@ -1,0 +1,183 @@
+{
+	"navbar": {
+	  "home": "Home",
+	  "about": "About Us",
+	  "services": "Services",
+	  "project": "Project",
+	  "advantages": "Advantages",
+	  "contact": "Contact Us"
+	},
+	"hero": {
+    "title": "EMPOWERING BUSINESS THROUGH TECHNOLOGY",
+    "description": "We aim to simplify and strengthen your business through advanced technological solutions.",
+    "button": "Discuss the project"
+  },
+	"about": {
+	  "sectitle": "ABOUT COMPANY",
+	  "heading": "WHERE\nTECHNOLOGIES\nBECOME REALITY",
+	  "description": "Lumtech is a modern, young IT company whose mission is to create innovative and functional technological solutions. Our team of talented developers, designers, and data analysis specialists works diligently to offer products that meet the needs of the modern market.",
+	  "button": "Discuss the project",
+	  "stats": {
+		"projects": "projects",
+		"clients": "clients",
+		"awards": "awards",
+		"employees": "employees"
+	  }
+	},
+	"stages": {
+    "sectitle": "HOW IT WORKS",
+    "heading": "PRODUCT DEVELOPMENT STAGES",
+    "description": "From Research to Implementation: Steps Defining Project Success",
+    "step1": {
+      "title": "Research and Design",
+      "description": "This stage involves analyzing customer requirements, studying the market and competitive environment, defining project goals and tasks. It's where the overall product concept is developed, including user interface, visual design, application architecture, and its functional capabilities."
+    },
+    "step2": {
+      "title": "Development",
+      "description": "The process of coding and project realization based on previous stages. Programming, integrating functions, testing individual modules."
+    },
+    "step3": {
+      "title": "Testing",
+      "description": "After product development, specialists test for errors and deficiencies to ensure it meets quality standards."
+    },
+    "step4": {
+      "title": "Deployment and Launch",
+      "description": "The stage where the finished product is released and implemented for end-user use."
+    }
+  },
+  "slider": {
+    "sectitle": "OUR PROJECT",
+    "slide1": {
+      "title": "in Baltic.eu",
+      "description": "We specialize in creating custom software tailored to businesses' needs. Our team of experts uses an Agile approach for fast and secure development that delivers maximum value to your business.",
+      "feature1": "Web Development",
+      "feature2": "UX/UI design"
+    },
+    "slide2": {
+      "title": "Project Alpha",
+      "description": "Providing innovative solutions for data-driven companies with a focus on efficiency and scalability.",
+      "feature1": "Cloud Services",
+      "feature2": "AI Integration"
+    },
+    "button": "Go to the project"
+  },
+  "features": {
+    "sectitle": "OUR SERVICES",
+    "heading": "TAILORED TO YOUR NEEDS",
+    "description": "We diligently strive to ensure that our solutions not only perform their functions but also inspire, support, and yield tangible results.",
+    "button": "Learn more",
+    "feature1": {
+      "title": "SOFTWARE DEVELOPMENT",
+      "description": "We specialize in creating custom software tailored to businesses' needs. Our team of experts uses an Agile approach for fast and secure development that delivers maximum value to your business."
+    },
+    "feature2": {
+      "title": "WEB & MOBILE DEVELOPMENT",
+      "description": "We specialize in crafting modern websites and mobile applications, delivering unique solutions and outstanding user experiences."
+    },
+    "feature3": {
+      "title": "UX/UI DESIGN",
+      "description": "UX/UI design is an essential part of creating attractive, intuitive, and user-friendly digital interfaces."
+    },
+    "feature4": {
+      "title": "DATA SCIENCE",
+      "description": "Data science is essential for informed business decisions. Our company specializes in extracting valuable insights from various data sources."
+    }
+  },
+	"reasons": {
+	  "sectitle": "ADVANTAGES",
+	  "heading": "REASONS TO WORK WITH LUMTECH",
+	  "subheading": "We take pride in our ability to adapt to various situations and provide personalized strategies for each client. Quality, innovation, and a personalized approach are our core principles.",
+	  "reason1": {
+		"description": "Innovative Solutions: We implement cutting-edge technologies and methodologies to create solutions that go beyond the ordinary, ensuring your competitiveness in the market."
+	  },
+	  "reason2": {
+		"description": "Personalized Approach: Each client is unique. Our team builds relationships based on attentiveness to your goals and needs, crafting tailored strategies that meet your expectations."
+	  },
+	  "reason3": {
+		"description": "Guaranteed Quality: Our primary goal is to deliver the highest quality in every aspect of our work, from development to results. We strive for perfection and provide time-tested solutions."
+	  },
+	  "reason4": {
+		"description": "Flexibility and Adaptability: We are ready for rapid changes and adjustments. We carefully listen to your feedback and adapt our approach for the best results"
+	  },
+	  "extra": {
+		"description": "Expert Approach: The Lumtach team comprises experienced professionals ready to tackle the most complex challenges. We offer not only technical expertise but also strategic thinking for your business."
+	  }
+	},  
+  "cta": {
+    "heading": "HOW CAN TECHNOLOGIES TRANSFORM YOUR BUSINESS?",
+    "description": "Tell us about your project, and we will suggest the best ways to bring it to life.",
+    "button": "Contact us",
+    "imageAlt": "Illustration",
+    "backgroundAlt": "Background Pattern"
+  },
+  "faq": {
+    "title": "FAQ",
+   "column1": [
+    {
+      "question": "What IT solutions does Lumtech specialize in?",
+      "answer": "Lumtech specializes in custom software development, web and mobile applications, UX/UI design, data analysis, and cloud solutions."
+    },
+    {
+      "question": "How does Lumtech integrate its solutions into existing infrastructure?",
+      "answer": "Our team ensures seamless integration of new solutions into existing infrastructure, minimizing downtime and improving efficiency."
+    },
+    {
+      "question": "What support services does Lumtech provide after project completion?",
+      "answer": "We offer ongoing maintenance, updates, and enhancements to ensure the stable operation of your solutions as your business grows."
+    }
+  ],
+  "column2": [
+    {
+      "question": "How secure are the solutions developed by Lumtech?",
+      "answer": "We implement advanced security measures, including data encryption, regular vulnerability testing, and secure coding standards."
+    },
+    {
+      "question": "How does Lumtech manage projects to deliver them on time?",
+      "answer": "We utilize Agile methodologies to manage timelines effectively, provide regular progress updates, and ensure projects are completed on schedule."
+    }
+  ]
+  },
+"footer": {
+    "contactUs": "Contact us",
+    "wantTo": "Want to contact us",
+    "form": {
+      "name": "Your name",
+      "phone": "Phone number",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "phone": "Enter your phone number",
+      "email": "Enter your email",
+      "message": "Enter your message"
+    },
+    "submit": "Submit",
+    "successMessage": "Form submitted successfully!",
+    "errors": {
+      "nameRequired": "Name is required",
+      "invalidPhone": "Invalid phone number",
+      "invalidEmail": "Invalid email address",
+      "messageRequired": "Message is required",
+      "serverError": "Failed to send form. Please try again later."
+    },
+    "about": "About",
+    "info": "Info",
+    "links": {
+      "company": "Company",
+      "team": "Team",
+      "projects": "Projects",
+      "services": "Services",
+      "advantages": "Advantages",
+      "faq": "FAQ"
+    },
+    "contact": {
+      "contacts": "Contact Us",
+      "phone": "+1 (999) 999-99-99",
+      "email": "hello@company.com",
+      "address": "Riga, Latvia"
+    },
+    "bottomText": "Lumtech. All rights reserved."
+  }
+  }
+  

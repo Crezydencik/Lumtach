@@ -1,8 +1,8 @@
 .button {
-  @apply px-8 py-4 rounded-[81px] font-semibold transition-all duration-300;
+  @apply px-8 py-3 rounded-[81px] font-semibold transition-all duration-300;
 
   &--primary {
-    @apply bg-[#A6EB53];
+    @apply bg-[#A6EB53] text-black;
 
     &:hover {
       @apply bg-[#96D44B];
