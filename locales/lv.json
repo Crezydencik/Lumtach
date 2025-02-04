@@ -54,10 +54,10 @@
 		"feature2": "UX/UI dizains"
 	  },
 	  "slide2": {
-		"title": "Projekts Alpha",
-		"description": "Nodrošinām inovatīvus risinājumus datu vadītiem uzņēmumiem, koncentrējoties uz efektivitāti un mērogojamību.",
-		"feature1": "Mākoņpakalpojumi",
-		"feature2": "Mākslīgā intelekta integrācija"
+		"title": "HouseOfHope",
+		  "description": "Cerību nams ir platforma ģimenēm, bērniem un jauniešiem, kuras mērķis ir palīdzēt viņiem pārraut nabadzības, sociālās diskriminācijas un izglītības trūkuma ciklu.",
+		  "feature1": "Tīmekļa izstrāde",
+		  "feature2": "UX/UI dizains"
 	  },
 	  "button": "Apskatīt projektu"
 	},
