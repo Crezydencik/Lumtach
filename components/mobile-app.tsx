@@ -24,8 +24,8 @@ export default function ProjectSlider() {
       title: t('slider.slide2.title'),
       description: t('slider.slide2.description'),
       features: [t('slider.slide2.feature1'), t('slider.slide2.feature2')],
-      image: '/images/mockup2.png',
-      link: '/projects/alpha',
+      image: '/images/houseofhope_mukcup.png',
+      link: 'https://houseofhopeinfo.lv/lv/',
     },
   ];
 
