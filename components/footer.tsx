@@ -55,7 +55,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="bg-black text-white p-12">
-      <div className="md:flex">
+{/*       <div className="md:flex">
         {/* Contact Form */}
         <div className="pr-6 rounded-lg md:w-[33%]">
           <h3 className="text-lime-400 text-sm font-mono mb-4">
@@ -160,7 +160,7 @@ export default function Footer() {
               {t('footer.submit')}
             </button>
           </form>
-        </div>
+        </div> */}
     <div className="md:flex justify-between md:w-[67%]">
 
         {/* Navigation and Contact Details */}
