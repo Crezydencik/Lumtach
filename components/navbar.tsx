@@ -118,12 +118,12 @@ export default function Navbar() {
                 <a href="#services" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.services')}
                 </a>
-                <Link href="#project" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <a href="#project" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.project')}
-                </Link>
-                <Link href="#advant" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                </a>
+                <a href="#advant" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.advantages')}
-                </Link>
+                </a>
               </div>
 
               <div>
