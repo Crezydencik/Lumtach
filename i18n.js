@@ -7,11 +7,6 @@ import lv from "./locales/lv.json";
 
 const getInitialLanguage = () => {
   if (typeof window !== "undefined") {
-    // Проверяем, доступен ли `localStorage`
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    if (savedLanguage) {
-      return savedLanguage;
-    }
     // Если язык не сохранён, используем язык браузера
     const browserLanguage = navigator.language.split("-")[0];
     const supportedLanguages = ["en", "ru", "lv"];
