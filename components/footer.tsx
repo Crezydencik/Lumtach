@@ -57,7 +57,19 @@ export default function Footer() {
     <footer id="contact" className="bg-black text-white p-12">
     <div className="md:flex justify-between md:w-[67%]">
 
-        {/* Navigation and Contact Details */}
+              <div className="">
+                <div className="flex justify-center lg:justify-end">
+                  <Link href="/" className="flex items-center mb-4">
+                  <Image
+                    src="/lumtech-logo.svg"
+                    alt="Lumtech"
+                    width={140}
+                    height={32}
+                    className="h-8 w-auto"
+                    />
+                  </Link>
+                </div>
+                </div>
         <div className="">
           <div>
             <h3 className="text-lime-400 text-sm font-mono mb-4">{t('footer.about')}</h3>
@@ -66,12 +78,12 @@ export default function Footer() {
                 <Link href="#" className="text-gray-400 hover:text-white">
                 {t('footer.links.company')}
                 </Link>
-              </li>
-              <li>
+                </li>
+                <li>
                 <Link href="#" className="text-gray-400 hover:text-white">
                 {t('footer.links.team')}
                 </Link>
-              </li> */}
+                </li> */}
               <li>
                 <Link href="#project" className="text-gray-400 hover:text-white">
                 {t('footer.links.projects')}
@@ -111,21 +123,7 @@ export default function Footer() {
           </div>
         </div>
         {/* Logo and Social Links */}
-        <div className="">
-          <div className="flex justify-center lg:justify-end">
-            <Link href="/" className="flex items-center mb-4">
-            <Image
-              src="/lumtech-logo.svg"
-              alt="Lumtech"
-              width={140}
-              height={32}
-              className="h-8 w-auto"
-            />
-            </Link>
-          </div>
-          </div>
       </div>
-    </div>
         <div className="center">
           <div className="flex space-x-4 justify-center mb-4">
             <Link href="https://www.facebook.com/lumtach"   target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
@@ -136,10 +134,10 @@ export default function Footer() {
             </Link>
             {/* <Link href="#" className="text-gray-400 hover:text-white">
               <Youtube className="w-6 h-6" />
-            </Link> */}
+              </Link> */}
             {/* <Link href="#" className="text-gray-400 hover:text-white">
               <Twitter className="w-6 h-6" />
-            </Link> */}
+              </Link> */}
           </div>
           <div className="text-center text-gray-400 text-sm">
             &copy; {new Date().getFullYear()}  {t('footer.bottomText')}

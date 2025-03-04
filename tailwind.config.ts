@@ -7,6 +7,16 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  rules: [
+    {
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader',
+      ],
+    },
+  ],
   theme: {
     extend: {
       backgroundImage: {

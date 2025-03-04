@@ -101,7 +101,9 @@ form {
     }
   }
 }
+  
 .sectitle{
+    @apply uppercase;
     color: #A6EB53;
     font-size: 18px;
     font-family: Oxanium;

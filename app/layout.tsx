@@ -23,6 +23,9 @@ export default function RootLayout({
 
   return (
     <html lang={i18n.language} suppressHydrationWarning>
+      <head>
+      <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={`${inter.className} bg-black`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar />

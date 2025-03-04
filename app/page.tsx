@@ -7,6 +7,7 @@ import Features from '@/components/features';
 import Reasons from '@/components/reasons';
 import FAQ from '@/components/faq';
 import CTA from '@/components/cta';
+import Partn from '../components/partn';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <AboutCompany />
       {/* <Stats /> */}
+      <Partn/>
       <ProductStages />
       <MobileApp />
       <Features />
