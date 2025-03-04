@@ -7,12 +7,26 @@ import lv from "./locales/lv.json";
 
 const getInitialLanguage = () => {
   if (typeof window !== "undefined") {
+    // Проверяем, доступен ли `localStorage`
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) {
+      return savedLanguage;
+    }
+
     // Если язык не сохранён, используем язык браузера
-    const browserLanguage = navigator.language.split("-")[0];
+    const browserLanguages = navigator.languages || [navigator.language];
     const supportedLanguages = ["en", "ru", "lv"];
-    return supportedLanguages.includes(browserLanguage)
-      ? browserLanguage
-      : "en";
+
+    // Выбираем первый поддерживаемый язык из предпочтений браузера
+    for (let i = 0; i < browserLanguages.length; i++) {
+      const language = browserLanguages[i].split("-")[0]; // Отделяем код языка (например, "ru" от "ru-RU")
+      if (supportedLanguages.includes(language)) {
+        return language;
+      }
+    }
+
+    // Если язык не поддерживается, используем язык по умолчанию
+    return "en";
   }
   return "en"; // Язык по умолчанию для сервера
 };
@@ -30,7 +44,7 @@ i18n.use(initReactI18next).init({
     },
   },
   lng: getInitialLanguage(),
-  fallbackLng: "en",
+  fallbackLng: "en", // Язык по умолчанию
   interpolation: {
     escapeValue: false,
   },
@@ -38,7 +52,7 @@ i18n.use(initReactI18next).init({
 
 if (typeof window !== "undefined") {
   i18n.on("languageChanged", (lng) => {
-    localStorage.setItem("selectedLanguage", lng);
+    localStorage.setItem("selectedLanguage", lng); // Сохраняем выбранный язык в localStorage
   });
 }
 
