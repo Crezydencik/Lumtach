@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
       <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} bg-black`}>
+      <body className={`${inter.className} ${oxanium.className} bg-black`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar />
           <main>{children}</main>
