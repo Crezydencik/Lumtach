@@ -58,8 +58,8 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="flex items-center space-x-4">
-            <a href="#contact" className="bg-[#A6EB53] text-black hover:bg-[#96D44B] px-6 py-2 rounded-full text-sm font-mono">
+          <div className="flex  items-center space-x-4">
+            <a href="#contact" className="hidden md:flex bg-[#A6EB53] text-black hover:bg-[#96D44B] px-6 py-2 rounded-full text-sm font-mono">
               {t('navbar.contact')}
             </a>
 
