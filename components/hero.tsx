@@ -13,7 +13,7 @@ export default function Hero() {
     <section id='home' className="min-h-screen flex flex-col lg:flex-row items-center justify-between pt-20 px-6 lg:px-16 text-white">
       {/* Текстовая часть */}
       <div className="max-w-2lg lg:max-w-3xl">
-        <h1 className="text-6xl font-bold mb-5 mt-16 tekstdecor">
+        <h1 className="text-6xl font-mono mb-5 mt-16 tekstdecor">
           {t('hero.title')}
         </h1>
         <p className="text-gray-400 text-xl mb-8">
