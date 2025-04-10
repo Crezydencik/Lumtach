@@ -32,7 +32,7 @@ export default function ProductDevelopmentStages() {
     <section className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sectitle mb-4 text-center">{t('stages.sectitle')}</div>
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-left md:text-center ">
           <h2 className="text-4xl font-bold mb-2 tekstdecor">{t('stages.heading')}</h2>
           <p className="text-lg text-gray-400">{t('stages.description')}</p>
         </div>
