@@ -1,6 +1,5 @@
 'use client';
 
-import '../app/styles/button.scss';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';

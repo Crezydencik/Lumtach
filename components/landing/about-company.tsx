@@ -1,7 +1,5 @@
 'use client';
 import { useTranslation } from 'react-i18next';
-import '../app/styles/button.scss'
-import { Button } from '@/components/ui/button';
 
 export default function AboutCompany() {
   const { t } = useTranslation();

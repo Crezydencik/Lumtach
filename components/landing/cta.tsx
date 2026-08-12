@@ -21,7 +21,9 @@ export default function CTA() {
             {t('cta.heading')}
           </h2>
           <p className="text-gray-800 mb-6">{t('cta.description')}</p>
-          <a href="#contact" className="button button--tertiary">{t('cta.button')}</a>
+          <Button asChild variant="secondary" size="lg" className="px-8 py-4">
+            <a href="#contact">{t('cta.button')}</a>
+          </Button>
         </div>
 
         {/* Изображение или графика */}
