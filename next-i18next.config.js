@@ -5,6 +5,5 @@ module.exports = {
     defaultLocale: "en",
     locales: ["en", "lv", "ru"],
   },
-  localePath: path.resolve("./locales"), // Указываем путь к папке с файлами
+  localePath: path.resolve("./src/locales"),
 };
-("");
