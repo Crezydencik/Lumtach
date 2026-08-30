@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PROJECT_LOCALES } from './types';
+import { PROJECT_LOCALES, type ProjectLocale } from './types';
 
 function labelForLocale(locale: (typeof PROJECT_LOCALES)[number]) {
   switch (locale) {
@@ -26,6 +26,31 @@ const projectTranslationSchema = z.object({
     .max(8, 'Можно добавить максимум 8 фич.'),
 });
 
+const translationsSchemaShape = PROJECT_LOCALES.reduce(
+  (shape, locale) => {
+    shape[locale] = projectTranslationSchema.superRefine((value, ctx) => {
+      if (!value.title.trim()) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Заполните название на ${labelForLocale(locale)} языке.`,
+          path: ['title'],
+        });
+      }
+
+      if (!value.description.trim()) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Заполните описание на ${labelForLocale(locale)} языке.`,
+          path: ['description'],
+        });
+      }
+    });
+
+    return shape;
+  },
+  {} as Record<ProjectLocale, z.ZodTypeAny>
+);
+
 export const projectInputSchema = z.object({
   slug: z
     .string()
@@ -37,30 +62,7 @@ export const projectInputSchema = z.object({
   link: z.string().trim().url('Укажите корректную ссылку на проект.'),
   order: z.number().int().min(0, 'Порядок не может быть меньше 0.').max(9999),
   published: z.boolean(),
-  translations: z.object(
-    Object.fromEntries(
-      PROJECT_LOCALES.map((locale) => [
-        locale,
-        projectTranslationSchema.superRefine((value, ctx) => {
-          if (!value.title.trim()) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              message: `Заполните название на ${labelForLocale(locale)} языке.`,
-              path: ['title'],
-            });
-          }
-
-          if (!value.description.trim()) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              message: `Заполните описание на ${labelForLocale(locale)} языке.`,
-              path: ['description'],
-            });
-          }
-        }),
-      ])
-    ) as Record<(typeof PROJECT_LOCALES)[number], z.ZodTypeAny>
-  ),
+  translations: z.object(translationsSchemaShape),
 });
 
 export const projectUpdateSchema = projectInputSchema.partial().refine(

@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const { i18n } = useTranslation();
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const isAuthOrAdminRoute =
     pathname === '/login' || pathname.startsWith('/admin');
 
