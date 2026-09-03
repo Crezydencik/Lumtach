@@ -66,7 +66,10 @@
       "feature2": "UX/UI design"
     },
     "button": "Go to the project",
-    "moreProjects": "More projects"
+    "moreProjects": "More projects",
+    "loading": "Loading projects from admin...",
+    "empty": "No projects have been added yet",
+    "error": "Could not load projects"
   },
   "projectsPage": {
     "title": "Projects That Move Between Strategy And Product",

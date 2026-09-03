@@ -1,25 +1,16 @@
-import { DEFAULT_PROJECTS } from './defaults';
 import { localizeProject } from './localize';
 import { projectInputSchema, projectUpdateSchema } from './schema';
 import {
   createProjectRecord,
   deleteProjectRecord,
-  isProjectsCollectionEmpty,
+  getNextProjectOrder,
   listProjectRecords,
-  seedProjectRecords,
+  updateProjectOrders,
   updateProjectRecord,
 } from './repository';
 import { ProjectInput, ProjectRecord } from './types';
 
-async function ensureSeededProjects() {
-  const empty = await isProjectsCollectionEmpty();
-  if (empty) {
-    await seedProjectRecords(DEFAULT_PROJECTS);
-  }
-}
-
 export async function listProjects(options?: { includeUnpublished?: boolean }) {
-  await ensureSeededProjects();
   const records = await listProjectRecords();
 
   if (options?.includeUnpublished) {
@@ -30,7 +21,12 @@ export async function listProjects(options?: { includeUnpublished?: boolean }) {
 }
 
 export async function createProject(input: unknown) {
-  const parsed = projectInputSchema.parse(input) as ProjectInput;
+  const baseInput = typeof input === 'object' && input !== null ? input : {};
+  const parsed = projectInputSchema.parse({
+    ...baseInput,
+    order: await getNextProjectOrder(),
+  }) as ProjectInput;
+
   return createProjectRecord(parsed);
 }
 
@@ -41,4 +37,18 @@ export async function updateProject(id: string, input: unknown) {
 
 export async function deleteProject(id: string) {
   return deleteProjectRecord(id);
+}
+
+export async function reorderProjects(projectIds: unknown) {
+  if (
+    !Array.isArray(projectIds) ||
+    projectIds.length === 0 ||
+    projectIds.some((projectId) => typeof projectId !== 'string' || projectId.trim().length === 0)
+  ) {
+    throw new Error('Передайте список проектов в нужном порядке.');
+  }
+
+  const normalizedProjectIds = projectIds.map((projectId) => projectId.trim());
+  await updateProjectOrders(normalizedProjectIds);
+  return listProjects({ includeUnpublished: true });
 }

@@ -7,6 +7,7 @@ import 'swiper/css';
 import { Code2, Smartphone, Paintbrush, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 const features = [
   {
@@ -46,7 +47,11 @@ export default function Features() {
               {t('features.heading')}
             </h2>
             <p className="text-gray-400 mb-8">{t('features.description')}</p>
-            <a href="#contact" className="button button--primary">{t('features.button')}</a>
+            <Link href="#contact">
+              <Button variant="outline">
+                {t('features.button')}
+              </Button>
+            </Link>
           </div>
 
           {/* Правая часть */}

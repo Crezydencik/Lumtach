@@ -65,13 +65,6 @@ export default function AdminShell({
             })}
           </nav>
 
-          <div className="mt-10 rounded-[24px] border border-white/8 bg-white/5 p-4">
-            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-white/35">Совет</div>
-            <p className="mt-3 text-sm leading-6 text-white/65">
-              Загружай изображения сразу в панель, чтобы не хранить ручные пути и не править ссылки в коде.
-            </p>
-          </div>
-
           <div className="mt-auto hidden pt-8 xl:block">
             <div className="flex items-center gap-3 rounded-2xl border border-white/8 bg-[#0b0b0f] px-4 py-3 text-sm text-white/60">
               <LogOut className="h-4 w-4" />

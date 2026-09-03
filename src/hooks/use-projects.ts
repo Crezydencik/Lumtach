@@ -1,21 +1,24 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { DEFAULT_PROJECTS } from '@/modules/projects/defaults';
 import { localizeProject } from '@/modules/projects/localize';
 import { LocalizedProjectView, ProjectRecord } from '@/modules/projects/types';
 
 export function useProjects(locale: string) {
-  const [projects, setProjects] = useState<ProjectRecord[]>(DEFAULT_PROJECTS);
+  const [projects, setProjects] = useState<ProjectRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    async function loadProjects() {
+    async function loadProjects(showLoading = false) {
+      if (showLoading) {
+        setIsLoading(true);
+      }
+
       try {
-        const response = await fetch('/api/projects', { cache: 'no-store' });
+        const response = await fetch(`/api/projects?ts=${Date.now()}`, { cache: 'no-store' });
         const payload = await response.json().catch(() => null);
 
         if (!response.ok) {
@@ -23,7 +26,7 @@ export function useProjects(locale: string) {
         }
 
         if (!cancelled) {
-          setProjects(payload.projects || DEFAULT_PROJECTS);
+          setProjects(payload.projects || []);
           setError(null);
         }
       } catch (requestError) {
@@ -37,10 +40,22 @@ export function useProjects(locale: string) {
       }
     }
 
-    loadProjects();
+    function refreshWhenVisible() {
+      if (document.visibilityState === 'visible') {
+        loadProjects();
+      }
+    }
+
+    loadProjects(true);
+    window.addEventListener('focus', refreshWhenVisible);
+    document.addEventListener('visibilitychange', refreshWhenVisible);
+    const refreshInterval = window.setInterval(refreshWhenVisible, 15000);
 
     return () => {
       cancelled = true;
+      window.removeEventListener('focus', refreshWhenVisible);
+      document.removeEventListener('visibilitychange', refreshWhenVisible);
+      window.clearInterval(refreshInterval);
     };
   }, []);
 

@@ -5,27 +5,77 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  [
+    'inline-flex items-center justify-center',
+    'whitespace-nowrap rounded-full',
+    'font-semibold',
+    'transition-all duration-200',
+    'focus-visible:outline-none',
+    'focus-visible:ring-2',
+    'focus-visible:ring-[#A6EB53]',
+    'focus-visible:ring-offset-2',
+    'disabled:pointer-events-none',
+    'disabled:opacity-50',
+  ],
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        // Variant 1
+        default: [
+          'bg-[#A6EB53]',
+          'text-[#0E0E0F]',
+          'hover:bg-[#96D44B]',
+          'active:bg-[#86C23D]',
+        ],
+
+        // Variant 2
+        outline: [
+          'border border-[#A6EB53]/10',
+          'bg-transparent',
+          'text-[#A6EB53]',
+          'hover:border-[#96D44B]',
+          'hover:text-[#96D44B]',
+        ],
+
+        // Variant 3
+        dark: [
+          'bg-[#0E0E0F]',
+          'text-[#A6EB53]',
+          'hover:text-[#96D44B]',
+          'hover:bg-[#161616]',
+        ],
+
+        secondary: [
+          'bg-[#96D44B]',
+          'text-[#0E0E0F]',
+          'hover:bg-[#A6EB53]',
+        ],
+
+        ghost: [
+          'bg-transparent',
+          'text-[#A6EB53]',
+          'hover:bg-[#A6EB53]/10',
+        ],
+
+        link: [
+          'text-[#A6EB53]',
+          'underline-offset-4',
+          'hover:text-[#96D44B]',
+          'hover:underline',
+        ],
+
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'bg-red-600 text-white hover:bg-red-700',
       },
+
       size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
+        default: 'h-12 px-6 text-base',
+        sm: 'h-10 px-5 text-sm',
+        lg: 'h-14 px-8 text-lg',
+        icon: 'h-12 w-12 p-0',
       },
     },
+
     defaultVariants: {
       variant: 'default',
       size: 'default',
@@ -40,17 +90,34 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : 'button';
+
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({
+            variant,
+            size,
+            className,
+          })
+        )}
         ref={ref}
         {...props}
       />
     );
   }
 );
+
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };

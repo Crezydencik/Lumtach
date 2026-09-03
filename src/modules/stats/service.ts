@@ -1,10 +1,8 @@
-import { DEFAULT_STATS } from './defaults';
 import { getStatsRecord, saveStatsRecord } from './repository';
 import { statsInputSchema } from './schema';
 
 export async function getHomepageStats() {
-  const stats = await getStatsRecord();
-  return stats || DEFAULT_STATS;
+  return getStatsRecord();
 }
 
 export async function updateHomepageStats(input: unknown) {

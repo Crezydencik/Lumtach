@@ -1,6 +1,8 @@
 'use client';
 import { useTranslation } from 'react-i18next';
 import { useHomepageStats } from '@/hooks/use-homepage-stats';
+import Link from 'next/dist/client/link';
+import { Button } from '../ui/button';
 
 export default function AboutCompany() {
   const { t, i18n } = useTranslation();
@@ -24,28 +26,31 @@ export default function AboutCompany() {
               {t('about.description')}
             </p>
             <div className="flex justify-start">
-              <a href="#contact" className="button button--secondary">
+              <Link href="#contact">
+                <Button variant="outline">
                 {t('about.button')}
-              </a>
+                </Button>
+              </Link>
             </div>
           </div>
 
-          {/* Правая часть (Объединенная сетка чисел) */}
-          <div className="grid grid-cols-2 gap-0 md:w-[45%]">
-            {stats.items.map((item, index) => (
-              <div
-                key={index}
-                className="bg-gray-900 p-8 flex flex-col items-center justify-center text-center h-[150px] w-full border border-black tekstdecor"
-              >
-                <div className="text-6xl font-mono font-bold text-white mb-2">
-                  {item.value}
+          {stats?.items?.length ? (
+            <div className="grid grid-cols-2 gap-0 md:w-[45%]">
+              {stats.items.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900 p-8 flex flex-col items-center justify-center text-center h-[150px] w-full border border-black tekstdecor"
+                >
+                  <div className="text-6xl font-mono font-bold text-white mb-2">
+                    {item.value}
+                  </div>
+                  <div className="text-gray-500 text-sm uppercase">
+                    {item.labels[currentLocale] || t(`about.stats.${item.key}`)}
+                  </div>
                 </div>
-                <div className="text-gray-500 text-sm uppercase">
-                  {item.labels[currentLocale] || t(`about.stats.${item.key}`)}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

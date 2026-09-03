@@ -35,8 +35,23 @@ function mapProject(docId: string, data: FirebaseFirestore.DocumentData): Projec
 }
 
 export async function listProjectRecords() {
-  const snapshot = await collection().orderBy('order', 'asc').get();
-  return snapshot.docs.map((doc) => mapProject(doc.id, doc.data()));
+  const snapshot = await collection().get();
+  return snapshot.docs
+    .map((doc) => mapProject(doc.id, doc.data()))
+    .sort((first, second) => {
+      if (first.order !== second.order) {
+        return first.order - second.order;
+      }
+
+      return first.id.localeCompare(second.id);
+    });
+}
+
+export async function getNextProjectOrder() {
+  const snapshot = await collection().orderBy('order', 'desc').limit(1).get();
+  const lastOrder = snapshot.docs[0]?.data().order;
+
+  return typeof lastOrder === 'number' ? lastOrder + 1 : 1;
 }
 
 export async function createProjectRecord(input: ProjectInput) {
@@ -70,24 +85,12 @@ export async function deleteProjectRecord(id: string) {
   await collection().doc(id).delete();
 }
 
-export async function isProjectsCollectionEmpty() {
-  const snapshot = await collection().limit(1).get();
-  return snapshot.empty;
-}
-
-export async function seedProjectRecords(projects: ProjectRecord[]) {
+export async function updateProjectOrders(projectIds: string[]) {
   const batch = getFirebaseAdminDb().batch();
 
-  projects.forEach((project) => {
-    const docRef = collection().doc(project.id);
-    batch.set(docRef, {
-      slug: project.slug,
-      image: project.image,
-      link: project.link,
-      order: project.order,
-      published: project.published,
-      translations: project.translations,
-      createdAt: FieldValue.serverTimestamp(),
+  projectIds.forEach((projectId, index) => {
+    batch.update(collection().doc(projectId), {
+      order: index + 1,
       updatedAt: FieldValue.serverTimestamp(),
     });
   });
