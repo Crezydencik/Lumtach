@@ -99,6 +99,6 @@
 }
 img,
 video {
-  max-width: none;
-  height: auto; /* Оставляем, чтобы сохранялись пропорции */
+  max-width: 100%;
+  height: auto;
 }

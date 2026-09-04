@@ -19,7 +19,7 @@ export default function AboutCompany() {
           {/* Левая часть */}
           <div className="md:w-1/2 flex flex-col justify-center">
             <div className="sectitle mb-3">{t('about.sectitle')}</div>
-            <h2 className="text-6xl font-mono leading-tight mb-8 tekstdecor">
+            <h2 className="tekstdecor  mt-5">
               {t('about.heading')}
             </h2>
             <p className="text-gray-400 text-lg mb-8">

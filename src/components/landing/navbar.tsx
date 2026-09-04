@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full z-50 bg-black">
+      <nav className="fixed inset-x-0 top-0 z-50 bg-black">
         <div className="flex items-center justify-between h-20 px-6">
           <Link href="/" className="flex items-center">
             <Image

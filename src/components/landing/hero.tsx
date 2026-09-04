@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex flex-col items-center justify-between px-6 pt-20 text-white lg:flex-row lg:px-16">
       <div className="max-w-2lg lg:max-w-3xl">
-        <h1 className="text-6xl font-mono mb-5 mt-16 tekstdecor">
+        <h1 className="tekstdecor  mt-10">
           {t('hero.title')}
         </h1>
         <p className="text-gray-400 text-xl mb-8">
@@ -21,7 +21,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="relative w-full lg:w-1/2 mt-10 lg:mt-0 -ml-26">
+      <div className="relative mt-10 w-full lg:mt-0 lg:w-1/2 lg:-ml-26">
         <motion.div
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ export default function Hero() {
             width={1200}
             height={900}
             priority
-            className="w-full max-w-[500px] lg:max-w-[1200px] object-contain -ml-26"
+            className="w-full max-w-[500px] object-contain lg:max-w-[1200px] lg:-ml-26"
           />
           <motion.div
             animate={{

@@ -36,51 +36,11 @@ export default function ProjectSlider() {
             className="w-full"
             spaceBetween={50}
             slidesPerView={1}
+            loop={homepageProjects.length > 1}
           >
             {homepageProjects.map((project) => (
               <SwiperSlide key={project.id}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex flex-col h-[500px] justify-center"
-                  >
-                    <h2 className="text-6xl font-bold mb-6 leading-tight">
-                      {project.title}
-                    </h2>
-                    <p className="text-gray-400 mb-8 text-lg">{project.description}</p>
-
-                    <div className="grid grid-cols-2 gap-4 text-gray-400 mb-8">
-                      {project.features.map((feature, idx) => (
-                        <ul className="list-disc list-inside space-y-2" key={idx}>
-                          <li>{feature}</li>
-                        </ul>
-                      ))}
-                    </div>
-
-                    <Link href={project.link} passHref>
-                      <Button variant="outline">
-                       {t('slider.button')}
-                      </Button>
-                    </Link>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="flex items-center justify-center h-[500px]"
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={350}
-                      height={700}
-                      className="rounded-lg shadow-xl"
-                    />
-                  </motion.div>
-                </div>
+                <ProjectSlide project={project} buttonLabel={t('slider.button')} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -100,5 +60,59 @@ export default function ProjectSlider() {
         </div>
       </div>
     </section>
+  );
+}
+
+type ProjectSlideProps = {
+  project: ReturnType<typeof useProjects>['projects'][number];
+  buttonLabel: string;
+};
+
+function ProjectSlide({ project, buttonLabel }: ProjectSlideProps) {
+  const projectTitle = project.title?.trim() || project.slug || 'Project';
+
+  return (
+    <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex min-h-[500px] flex-col justify-center md:h-[500px]"
+                  >
+                    <h2 className="text-6xl font-bold mb-6 leading-tight">
+                      {projectTitle}
+                    </h2>
+                    <p className="text-gray-400 mb-8 text-lg">{project.description}</p>
+
+                    <div className="grid grid-cols-2 gap-4 text-gray-400 mb-8">
+                      {project.features.map((feature, idx) => (
+                        <ul className="list-disc list-inside space-y-2" key={idx}>
+                          <li>{feature}</li>
+                        </ul>
+                      ))}
+                    </div>
+
+                    <Link href={project.link} passHref>
+                      <Button variant="outline">
+                       {buttonLabel}
+                      </Button>
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center justify-center h-[500px]"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={projectTitle}
+                      width={350}
+                      height={700}
+                      className="rounded-lg shadow-xl"
+                    />
+                  </motion.div>
+    </div>
   );
 }

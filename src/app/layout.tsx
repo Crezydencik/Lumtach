@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang={i18n.language} suppressHydrationWarning>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-black text-white">
