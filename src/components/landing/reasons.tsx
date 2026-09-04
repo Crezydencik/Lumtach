@@ -36,7 +36,7 @@ export default function Reasons() {
         <div className="text-lime-400 mb-4 font-mono text-center">
           {t('reasons.sectitle')}
         </div>
-        <h2 className="text-6xl font-bold mb-4 text-left md:text-center  tekstdecor">
+        <h2 className=" tekstdecor  mt-5">
           {t('reasons.heading')}
         </h2>
         <p className="text-gray-400 text-left md:text-center  mb-12">

@@ -43,7 +43,7 @@ export default function Features() {
         <div className="flex flex-col md:flex-row gap-20 items-start">
           {/* Левая часть */}
           <div className="md:w-1/2">
-            <h2 className="text-6xl font-extrabold mb-8 leading-tight tekstdecorat">
+            <h2 className=" tekstdecor  mt-5">
               {t('features.heading')}
             </h2>
             <p className="text-gray-400 mb-8">{t('features.description')}</p>

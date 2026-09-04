@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart3, FolderKanban, ImagePlus, LayoutGrid, LogOut } from 'lucide-react';
+import { BarChart3, FolderKanban, ImagePlus, LayoutGrid, LogOut, Megaphone } from 'lucide-react';
 
 type AdminShellProps = {
   eyebrow: string;
@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { href: '/admin/projects', label: 'Проекты', icon: FolderKanban },
   { href: '/admin/stats', label: 'Статистика', icon: BarChart3 },
   { href: '/admin/media', label: 'Медиа', icon: ImagePlus },
+  { href: '/admin/smm', label: 'SMM-агент', icon: Megaphone },
 ];
 
 export default function AdminShell({

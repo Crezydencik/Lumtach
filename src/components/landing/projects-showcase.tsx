@@ -26,7 +26,7 @@ export default function ProjectsShowcase({ compact = false }: ProjectsShowcasePr
             className="max-w-xl"
           >
             <div className="sectitle">{t('slider.sectitle')}</div>
-            <h1 className="text-6xl font-mono mb-5 mt-16 tekstdecor">
+            <h1 className="tekstdecor  mt-5">
               {t('projectsPage.title')}
             </h1>
             <p className="text-gray-400 text-xl mb-8">

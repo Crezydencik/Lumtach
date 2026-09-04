@@ -19,6 +19,8 @@ export default function Navbar() {
     setIsLangOpen(false); // Закрыть меню после выбора языка
   };
 
+  const closeMenu = () => setIsOpen(false);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
@@ -109,19 +111,19 @@ export default function Navbar() {
           >
             <div className="flex flex-col h-full justify-between p-8">
               <div className="space-y-8">
-                <Link href="#home" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <Link href="#home" onClick={closeMenu} className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.home')}
                 </Link>
-                <a href="#about" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <a href="#about" onClick={closeMenu} className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.about')}
                 </a>
-                <a href="#services" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <a href="#services" onClick={closeMenu} className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.services')}
                 </a>
-                <Link href="/projects" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <Link href="/projects" onClick={closeMenu} className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.project')}
                 </Link>
-                <a href="#advant" className="block text-white hover:text-[#A6EB53] text-xl font-mono">
+                <a href="#advant" onClick={closeMenu} className="block text-white hover:text-[#A6EB53] text-xl font-mono">
                   {t('navbar.advantages')}
                 </a>
               </div>
